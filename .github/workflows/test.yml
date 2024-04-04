@@ -38,3 +38,10 @@ jobs:
 
       - name: step3 call-action
         uses: ./
+        id: step3
+
+      - name: step4
+        env:
+          outputs: ${{ toJSON(steps.step3.outputs) }}
+        run:
+          echo "$outputs"
